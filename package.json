@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "start": "node -r dotenv-flow/config src/server.js -- --dotenv-flow-path=envs",
+    "start": "node src/server.js",
     "production": "cross-env NODE_ENV=production npm start",
     "dev": "cross-env NODE_ENV=dev DOTENV_FLOW_PATH=envs nodemon -r dotenv-flow/config",
     "test": "mocha ./test/* --exit",
