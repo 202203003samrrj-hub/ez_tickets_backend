@@ -10,11 +10,6 @@ exports.forgotPWSchema = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
         .normalizeEmail()
 ];
 
@@ -25,11 +20,6 @@ exports.changePWSchema = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
         .normalizeEmail(),
     body('password')
         .trim()
@@ -54,11 +44,6 @@ exports.resetPWSchema = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
         .normalizeEmail(),
     body('password')
         .trim()
@@ -75,12 +60,7 @@ exports.verifyOTPSchema = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
-        .normalizeEmail(),
+       .normalizeEmail(),
     body('OTP')
         .trim()
         .exists()
@@ -98,12 +78,7 @@ exports.validateLogin = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
-        .normalizeEmail(),
+       .normalizeEmail(),
     body('password')
         .trim()
         .exists()
@@ -119,12 +94,7 @@ exports.validateRefresh = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
-        .normalizeEmail(),
+       .normalizeEmail(),
     body('password')
         .trim()
         .exists()
