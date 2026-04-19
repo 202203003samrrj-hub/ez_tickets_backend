@@ -1,6 +1,5 @@
 const { body } = require('express-validator');
 const { OTPRegex } = require('../../utils/common.utils');
-const EmailValidator = require('deep-email-validator');
 
 
 exports.forgotPWSchema = [
