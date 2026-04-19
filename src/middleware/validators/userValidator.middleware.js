@@ -1,6 +1,6 @@
 const { body } = require('express-validator');
 const UserRole = require('../../utils/enums/userRoles.utils');
-const EmailValidator = require('deep-email-validator');
+
 
 
 exports.createUserSchema = [
