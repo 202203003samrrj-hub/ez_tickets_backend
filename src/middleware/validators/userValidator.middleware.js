@@ -20,12 +20,7 @@ exports.createUserSchema = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
-        .normalizeEmail(),
+      .normalizeEmail(),
     body('role')
         .optional()
         .trim()
@@ -57,12 +52,7 @@ exports.updateUserSchema = [
         .trim()
         .isEmail()
         .withMessage('Must be a valid email')
-        .custom(async (email) => {
-            const {valid} = await EmailValidator.validate(email);
-            return valid;
-        })
-        .withMessage('Email unrecognized')
-        .normalizeEmail(),
+       .normalizeEmail(),
     body('role')
         .optional()
         .trim()
